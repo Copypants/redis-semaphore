@@ -2,10 +2,12 @@
   "name": "redis-semaphore",
   "version": "0.2.2",
   "description": "Distributed mutex and semaphore based on Redis",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "eslint . && yarn run mocha",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "compile": "traceur --dir src dist --modules commonjs --import-runtime true --experimental --outputLanguage es5",
+    "show-version": "echo $npm_package_version"
   },
   "repository": {
     "type": "git",
@@ -43,6 +45,8 @@
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
     "underscore": "^1.9.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "traceur": "0.0.111",
+    "traceur-source-maps": "^1.0.6"
   }
 }
