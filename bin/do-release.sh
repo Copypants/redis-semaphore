@@ -42,7 +42,6 @@ if [ -f package-lock.json ]; then
    git add package-lock.json || bail
 fi
 git add package.json || bail
-git add dist || bail
 git commit -m "Updated version to $version" || bail
 
 # do git release
